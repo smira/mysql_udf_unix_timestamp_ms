@@ -1,10 +1,36 @@
 mysql_udf_unix_timestamp_ms
 ===========================
 
-Implementation of UNIX_TIMESTAMP() that returns UNIX time since epoch with sub-second precision (float).
+Implementation of UNIX_TIMESTAMP() that returns UNIX time since epoch with 
+sub-second precision (float).
+
+  mysql> select unix_timestamp_ms() * 1000 / 1000;
+  +-----------------------------------+
+  | unix_timestamp_ms() * 1000 / 1000 |
+  +-----------------------------------+
+  |                   1276753745.7377 |
+  +-----------------------------------+
+  1 row in set (0.00 sec)
 
 
 Installation
 ------------
 
+ 1. Build and install extension library, see, for example: http://dev.mysql.com/doc/refman/5.0/en/udf-compiling.html
+    a) Mac OS X with MacPorts:
+        #!/bin/sh
+
+        gcc -bundle -bundle_loader /opt/local/libexec/mysqld -o lib_udf_unix_timestamp_ms.so lib_udf_unix_timestamp_ms.c -I/opt/local/include/mysql5/mysql
+        sudo cp lib_udf_unix_timestamp_ms.so /opt/local/lib/mysql5/mysql/plugin/
+
+    b) Linux (CentOS)
+
+        get lib_udf_unix_timestamp_ms.{c,sql}
+        gcc -shared -fPIC -o lib_udf_unix_timestamp_ms.so lib_udf_unix_timestamp_ms.c -I /usr/include/mysql/
+        su
+        cp lib_udf_unix_timestamp_ms.so /usr/lib
+        /sbin/ldconfig
+
+ 2. Install function into MySQL:
+    mysql mysql < lib_udf_unix_timestamp_ms.sql
 
