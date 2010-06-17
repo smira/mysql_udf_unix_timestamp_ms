@@ -64,7 +64,7 @@ my_bool unix_timestamp_ms_init(
 	if(args->arg_count!=0){
 		strcpy(
 			message
-		,	"No arguments allowed (udf: lib_mysqludf_json_info)"
+		,	"No arguments allowed (udf: unix_timestamp_ms)"
 		);
 		status = 1;
 	} else {
