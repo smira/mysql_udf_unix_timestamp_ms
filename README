@@ -1,0 +1,10 @@
+mysql_udf_unix_timestamp_ms
+===========================
+
+Implementation of UNIX_TIMESTAMP() that returns UNIX time since epoch with sub-second precision (float).
+
+
+Installation
+------------
+
+
