@@ -34,3 +34,7 @@ Installation
  2. Install function into MySQL:
     mysql mysql < lib_udf_unix_timestamp_ms.sql
 
+License
+-------
+
+You're free to use, distribute and modify this code. It is public domain.
